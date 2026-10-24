@@ -21,6 +21,40 @@
     transform: all .2s linear;
 }
 
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 2rem;
+}
+
+@mixin titleText($titleSize) {
+    font-size: $titleSize;
+    color: var(--black);
+    text-transform: capitalize;
+}
+
+@mixin graphText($graphSize) {
+    font-size: $graphSize;
+    color: var(--light-color);
+    line-height: 1.5;
+}
+
+@mixin iconsBox() {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    background: var(--light-bg);
+    color: var(--black);
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+        background: var(--black);
+        color: var(--white);
+    }
+}
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -51,4 +85,12 @@ html {
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
+
+    .logo {
+        @include titleText(2.5rem);
+
+        span {
+            color: var(--yellow);
+        }
+    }
 }
